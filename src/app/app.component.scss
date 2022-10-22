@@ -8,8 +8,6 @@
     gap:2rem;
     border: 0.1rem black solid;
     background-color: white;
-
-
     
     .title{
         color:rgb(0, 87, 184);
@@ -26,13 +24,49 @@
         align-items: center;
         gap:0.5rem;
 
+     
+
+                
+        
         .inputs{
+          
+               
             height: 1.5rem;
+            
             .input {
                 height: 1.5rem;
                 background-color: rgb(247, 244, 244);
+               
                 
+                @media (max-width: 750px) {
+                    height: 1rem;
+                    width: 7rem;
+                 
+                }
             }
+
+            .error{
+                position: relative;
+                top:-2.5rem;
+                left:23rem;
+                color: red;
+                height: 1rem;
+                display: flex;
+                flex-wrap: wrap;
+    
+                @media (min-width: 530px) and (max-width: 750px) {
+                    left:16rem;
+                    font-size: 0.7rem;
+                    top:-1.5rem;
+                }
+                @media (max-width: 530px) {
+                    left:10rem;
+                    font-size: 0.7rem;
+                    top:-0.5rem;
+                }
+
+            }
+
 
         }
         .select{
@@ -60,13 +94,7 @@
             }
         }
 
-        .error{
-            position: relative;
-            top:-2.5rem;
-            left:23rem;
-            color: red;
-            height: 1rem;
-        }
+
 
         .button{
             position: relative;
@@ -79,6 +107,9 @@
             border: none;
             cursor: pointer;
             
+            @media (max-width: 750px) {
+                width:3.5rem ;
+            }
             &:hover{
                 background-color:rgb(0, 71, 151); 
             }
@@ -97,21 +128,23 @@
     .results {
         position: relative;
         top:-2rem;
-        width: 11%;
+        width: 30%;
         margin: auto;
         display: flex;
         flex-direction: column;
         text-align: center;
+        
 
         .title-result {
-            width:7rem;
             
+            margin: auto;
+           
         }
         .mmr-result{
-            align-items: center;
+            
+            margin: auto;
             background-color: rgb(255, 215, 0);
             width: 3rem;
-            margin: auto;
             color: rgb(0, 71, 151);
 
         }
