@@ -8,11 +8,19 @@
     gap:2rem;
     border: 0.1rem black solid;
     background-color: white;
+    background-size:cover;
+    border-radius: 0.25em;
+    background-image: linear-gradient( rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.5) ),url(../assets/images/background/orchu.jpg);
+    
+
+
+
     
     .title{
         color:rgb(0, 87, 184);
         font-size: 2rem;
         text-align: center;
+       
     }
 
     .form{
@@ -23,6 +31,8 @@
         margin: auto;
         align-items: center;
         gap:0.5rem;
+        z-index: 3;
+        
 
      
 
@@ -32,16 +42,35 @@
           
                
             height: 1.5rem;
+
+            .label{
+
+                font-size: 1.25rem;
+            }
             
             .input {
-                height: 1.5rem;
+                height: 1rem;
                 background-color: rgb(247, 244, 244);
-               
-                
-                @media (max-width: 750px) {
+                border-radius:10px;
+                min-width: 15ch;
+                max-width: 30ch;
+                border-radius: 0.25em;
+                padding: 0.25em 0.5em;
+                font-size: 1rem;
+
+                &:hover{
+                    border-color: rgb(0, 87, 184);
+                    }
+
+                @media (min-width: 450px) and (max-width: 750px) {
                     height: 1rem;
                     width: 7rem;
-                 
+                    min-width: 10ch;
+                }
+                @media (max-width: 450px) {
+                    min-width: 5ch;
+                    height: 1rem;
+                    width: 4rem;
                 }
             }
 
@@ -55,14 +84,14 @@
                 flex-wrap: wrap;
     
                 @media (min-width: 530px) and (max-width: 750px) {
-                    left:16rem;
+                    left:18rem;
                     font-size: 0.7rem;
-                    top:-1.5rem;
+                    top:-0.3rem;
                 }
                 @media (max-width: 530px) {
-                    left:10rem;
+                    left:17rem;
                     font-size: 0.7rem;
-                    top:-0.5rem;
+                    top:-0.3rem;
                 }
 
             }
@@ -70,9 +99,24 @@
 
         }
         .select{
-            width: 5rem;
+            
+            
+            min-width: 15ch;
+            max-width: 30ch;
+            border: 1px solid;
+            border-radius: 0.25em;
+            padding: 0.25em 0.5em;
+            font-size: 1rem;
+            cursor: pointer;
+            line-height: 1.1;
             background-color: rgb(247, 244, 244);
+            
+            &:hover{
+            border-color: rgb(0, 87, 184);
+            }
 
+
+/* 
             .ne{
                 background-color: rgba(168, 221, 168, 0.74);
             }
@@ -91,7 +135,7 @@
 
             .rn{
                 background-color: rgba(218, 221, 168, 0.74);
-            }
+            } */
         }
 
 
@@ -103,9 +147,13 @@
             height: 2rem;
             background-color:rgb(0, 87, 184); 
             color:white; 
-            border-radius: 8%;
-            border: none;
+             border: none;
             cursor: pointer;
+            border-radius: 0.25em;
+            padding: 0.25em 0.5em;
+            font-size: 1rem;
+            cursor: pointer;
+            line-height: 1.1;
             
             @media (max-width: 750px) {
                 width:3.5rem ;
@@ -138,6 +186,7 @@
         .title-result {
             
             margin: auto;
+            color:white;
            
         }
         .mmr-result{
@@ -146,6 +195,9 @@
             background-color: rgb(255, 215, 0);
             width: 3rem;
             color: rgb(0, 71, 151);
+            border-radius: 0.25em;
+            padding: 0.25em 0.5em;
+            font-size: 1rem;
 
         }
     
@@ -155,3 +207,5 @@
 
 
 }
+
+

@@ -47,6 +47,8 @@ export class AppComponent {
   async showCurrentMmr () {
     
     this.url = `https://website-backend.w3champions.com/api/players/${this.mmrForm.name}%23${this.mmrForm.number}/game-mode-stats?gateWay=20&season=${this.mmrForm.season}`;
+
+    console.log(this.url);
    
       const res  = await fetch(this.url);
       const data  = await res.json();
