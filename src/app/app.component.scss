@@ -12,11 +12,7 @@
     border-radius: 0.25em;
     background-image: linear-gradient( rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.5) ),url(../assets/images/background/orchu.jpg);
     
-    
-
-
-
-    
+   
     .title{
         color:rgb(0, 87, 184);
         font-size: 2rem;
@@ -69,7 +65,7 @@
                     min-width: 10ch;
                 }
                 @media (max-width: 450px) {
-                    min-width: 5ch;
+                    min-width: 8ch;
                     height: 1rem;
                     width: 4rem;
                 }
@@ -78,19 +74,32 @@
             .error{
                 position: relative;
                 top:-2.5rem;
-                left:23rem;
+                left:28rem;
                 color: red;
                 height: 1rem;
                 display: flex;
                 flex-wrap: wrap;
     
-                @media (min-width: 530px) and (max-width: 750px) {
+                @media (min-width: 750px) and (max-width: 850px) {
                     left:18rem;
                     font-size: 0.7rem;
                     top:-0.3rem;
                 }
-                @media (max-width: 530px) {
-                    left:17rem;
+
+                @media (min-width: 530px) and (max-width: 749px) {
+                    left:13rem;
+                    font-size: 0.7rem;
+                    top:-0.3rem;
+                }
+
+                @media (min-width: 450px) and (max-width: 529px) {
+                    left:12rem;
+                    font-size: 0.7rem;
+                    top:-0.3rem;
+                }
+
+                @media (max-width: 449px) {
+                    left:9rem;
                     font-size: 0.7rem;
                     top:-0.3rem;
                 }

@@ -42,7 +42,7 @@ export class AppComponent {
   }
 
 
-
+/* 
    levenshtein(a: string, b: string): number {
     const m: number = a.length,
       n: number = b.length;
@@ -56,17 +56,17 @@ export class AppComponent {
       t = u;
     }
     return u[n];
-  }
+  } */
 
-  ngAfterViewInit() {
+  /* ngAfterViewInit() {
   console.log(this.levenshtein('pten', 'pt3n'));
   }
-
+ */
   async showCurrentMmr () {
     
     this.url = `https://website-backend.w3champions.com/api/players/${this.mmrForm.name}%23${this.mmrForm.number}/game-mode-stats?gateWay=20&season=${this.mmrForm.season}`;
 
-    console.log(this.url);
+    /* console.log(this.url); */
    
       const res  = await fetch(this.url);
       const data  = await res.json();
@@ -606,7 +606,7 @@ export class AppComponent {
 
 
 
-    console.log(array);
+    /* console.log(array); */
 
     if(data.count>1900){
       queryDocMax.innerHTML= "Cas need a rest";
