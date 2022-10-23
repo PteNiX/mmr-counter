@@ -6,11 +6,12 @@
     margin: auto;
     width: 90%;
     gap:2rem;
-    border: 0.1rem black solid;
+    border: 0.1rem rgba(0,0,0, 0.25 ) solid;
     background-color: white;
     background-size:cover;
     border-radius: 0.25em;
     background-image: linear-gradient( rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.5) ),url(../assets/images/background/orchu.jpg);
+    
     
 
 
