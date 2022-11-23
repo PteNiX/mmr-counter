@@ -5,9 +5,14 @@
       <label> Battle tag (case sensivity)</label>
     </div>
     <div class="inputs">
-      <input type="text" class="input" [(ngModel)]="mmrForm.name" required name="name" />
+      <!--       <input type="text" class="input" [(ngModel)]="mmrForm.name" required name="name" />
       <label class="label">#</label>
-      <input type="number" class="input" [(ngModel)]="mmrForm.number" required name="number" />
+      <input type="number" class="input" [(ngModel)]="mmrForm.number" required name="number" /> -->
+
+      <input type="text" class="input final-input" [(ngModel)]="mmrForm.tag" required name="tag" list="tag" />
+      <datalist id="tag">
+        <option *ngFor="let tag of tagReturn" value=" {{tag.battleTag}}">
+      </datalist>
 
 
       <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
