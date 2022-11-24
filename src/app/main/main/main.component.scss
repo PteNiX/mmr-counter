@@ -5,12 +5,14 @@
     flex-direction: column;
     margin: auto;
     width: 90%;
+    height:90%;
     gap:2rem;
     border: 0.1rem rgba(0,0,0, 0.25 ) solid;
     background-color: white;
     background-size:cover;
     border-radius: 0.25em;
     background-image: linear-gradient( rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.5) ),url(../../../assets/images/background/orchu.jpg);
+    overflow-y:auto ;
     
    
     .title{
@@ -58,13 +60,13 @@
 
                 @media (min-width: 450px) and (max-width: 750px) {
                     height: 1rem;
-                    width: 7rem;
+                    width: 9rem;
                     min-width: 10ch;
                 }
                 @media (max-width: 450px) {
                     min-width: 8ch;
                     height: 1rem;
-                    width: 4rem;
+                    width: 8rem;
                 }
             }
 
