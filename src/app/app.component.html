@@ -2,26 +2,17 @@
   <div class="title"> W3Champions MMR Counter </div>
   <form class="form">
     <div>
-      <label> Battle tag (case sensivity)</label>
+      <label> Battle tag (at least 3 letters)</label>
     </div>
     <div class="inputs">
-      <!--       <input type="text" class="input" [(ngModel)]="mmrForm.name" required name="name" />
-      <label class="label">#</label>
-      <input type="number" class="input" [(ngModel)]="mmrForm.number" required name="number" /> -->
 
       <input type="text" class="input final-input" [(ngModel)]="mmrForm.tag" required name="tag" list="tag" />
       <datalist id="tag">
         <option *ngFor="let tag of tagReturn" value=" {{tag.battleTag}}">
       </datalist>
 
-
-      <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
-      <p class="error" *ngIf="errorMessage1">{{errorMessage1}}</p>
-
-
     </div>
     <label for="race">Choose race:
-      <!-- (only for 1x1) -->
     </label>
     <select class="select" [(ngModel)]="mmrForm.race" id="race" name="race">
       <option value="4" class="ne"> Night elf</option>
