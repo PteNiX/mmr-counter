@@ -119,9 +119,7 @@ export class AppComponent  {
     const predata  = await preres.json();
 
     let countGames = Math.floor(predata.count/100);
-    console.log(countGames);
-
-
+  
     for (let j=0; j<countGames+1;j++) {
     this.urlMax =
   `https://website-backend.w3champions.com/api/matches/search?playerId=${this.mmrForm.tag.trim().replace('#', '%23')}&gateway=0&offset=${j+"00"}&pageSize=100&season=${this.mmrForm.season}&gamemode=${this.mmrForm.mode}`;
@@ -153,7 +151,7 @@ export class AppComponent  {
 
      }
 
-    console.log(this.fullArray);
+    /* console.log(this.fullArray); */
 
   const sumOfNumbers = Math.round((this.fullArray.reduce((acc, number) => acc + number, 0))/this.fullArray.length);
   const aveOfSumb = Math.round((Math.max.apply(null, this.fullArray)+Math.min.apply(null, this.fullArray))/2);
@@ -176,7 +174,7 @@ export class AppComponent  {
       queryDocMax.innerHTML = "0";
       queryDocMed.innerHTML = "0";
       queryDocAv.innerHTML = "0";
-    
+      queryDoc.innerHTML="0";
       
     }
 
@@ -184,6 +182,7 @@ export class AppComponent  {
       queryDocMin.innerHTML = "0";
       queryDocMed.innerHTML = "0";
       queryDocAv.innerHTML = "0";
+      queryDoc.innerHTML="0";
       
     }
 
