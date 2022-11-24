@@ -72,7 +72,7 @@ export class AppComponent  {
 
       search2?.addEventListener('input', (event) => {
 
-        if(this.mmrForm.tag.length>3){
+        if(this.mmrForm.tag.length>2){
         this.urlTag= `https://website-backend.w3champions.com/api/players/global-search?search=${this.mmrForm.tag}&pageSize=20`;}
         observer.next(event);
       });
