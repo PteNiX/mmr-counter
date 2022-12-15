@@ -12,7 +12,7 @@ export class MainComponent implements OnInit {
   errorMessage1="";
   url="";
   urlMax='';
-  urlMax1='';
+/*   urlMax1='';
   urlMax2='';
   urlMax3='';
   urlMax4='';
@@ -30,12 +30,12 @@ export class MainComponent implements OnInit {
   urlMax16='';
   urlMax17='';
   urlMax18='';
-  urlMax19='';
+  urlMax19=''; */
   title = 'mmr';
   mmrForm: any = {
     name: 'PteN',
     number: '21803',
-    season:'12',
+    season:'13',
     race:'2',
     mode:'1',
     tag:'Grubby#1278',
