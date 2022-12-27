@@ -105,7 +105,9 @@ export class MainComponent implements OnInit {
           if(queryDoc!=null){
          queryDoc.innerHTML = data[i].mmr;
           }
-        }           
+        }      
+        
+
 
 }
 
@@ -129,7 +131,26 @@ export class MainComponent implements OnInit {
 
   let array = [];
 
-   for (let i = 0; i < data.matches.length; i++) {
+
+
+  if (this.mmrForm.mode =="301") {
+    for (let i = 0; i < data.matches.length; i++) {
+      if (
+        data.matches[i].teams[0].players[0].battleTag == `${this.mmrForm.tag.trim()}` 
+      ) {
+        array.push(data.matches[i].teams[0].players[0].currentMmr);
+      }
+      if (
+        data.matches[i].teams[1].players[0].battleTag == `${this.mmrForm.tag.trim()}`  
+      ) {
+        array.push(data.matches[i].teams[1].players[0].currentMmr);
+      }
+    }
+
+  }
+
+  else{
+  for (let i = 0; i < data.matches.length; i++) {
     if (
       data.matches[i].teams[0].players[0].battleTag == `${this.mmrForm.tag.trim()}` &&
       data.matches[i].teams[0].players[0].race == `${this.mmrForm.race}`
@@ -143,6 +164,7 @@ export class MainComponent implements OnInit {
       array.push(data.matches[i].teams[1].players[0].currentMmr);
     }
   }
+}
 
   let av = this.fullArray;
   this.fullArray=av.concat(array);
