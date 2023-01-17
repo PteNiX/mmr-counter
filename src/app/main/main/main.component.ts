@@ -12,25 +12,6 @@ export class MainComponent implements OnInit {
   errorMessage1="";
   url="";
   urlMax='';
-/*   urlMax1='';
-  urlMax2='';
-  urlMax3='';
-  urlMax4='';
-  urlMax5='';
-  urlMax6='';
-  urlMax7='';
-  urlMax8='';
-  urlMax9='';
-  urlMax10='';
-  urlMax11='';
-  urlMax12='';
-  urlMax13='';
-  urlMax14='';
-  urlMax15='';
-  urlMax16='';
-  urlMax17='';
-  urlMax18='';
-  urlMax19=''; */
   title = 'mmr';
   mmrForm: any = {
     name: 'PteN',

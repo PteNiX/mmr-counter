@@ -18,9 +18,16 @@
 
     .year{
         padding-left: 2rem;
+        &:hover {
+            color:rgb(255, 215, 0); 
+        }
     }
 
     .version{
         padding-right: 2rem;
+
+        &:hover {
+            color:rgb(255, 215, 0); 
+        }
     }
 }
