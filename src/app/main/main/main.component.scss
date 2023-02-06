@@ -44,6 +44,10 @@
                 font-size: 1.25rem;
             }
             
+            .tag{
+                cursor: pointer;
+                background-color: red;
+            }
             .input {
                 height: 1rem;
                 background-color: rgb(247, 244, 244);
@@ -53,9 +57,12 @@
                 border-radius: 0.25em;
                 padding: 0.25em 0.5em;
                 font-size: 1rem;
+               
+
 
                 &:hover{
                     border-color: rgb(0, 87, 184);
+                    box-shadow: 0 0 15px rgb(0, 87, 184);
                     }
 
                 @media (min-width: 450px) and (max-width: 750px) {
@@ -122,6 +129,7 @@
             
             &:hover{
             border-color: rgb(0, 87, 184);
+            box-shadow: 0 0 15px rgb(0, 87, 184);
             }
 
 
@@ -169,6 +177,7 @@
             }
             &:hover{
                 background-color:rgb(0, 71, 151); 
+                box-shadow: 0 0 15px rgb(255, 215, 0);
             }
 
             &:active {

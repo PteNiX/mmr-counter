@@ -7,7 +7,7 @@
         <div class="inputs">
 
             <input type="text" class="input final-input" [(ngModel)]="mmrForm.tag" required name="tag" list="tag" />
-            <datalist id="tag">
+            <datalist id="tag" class="tag">
                 <option *ngFor="let tag of tagReturn" value=" {{tag.battleTag}}">
             </datalist>
 
