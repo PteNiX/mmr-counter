@@ -74,6 +74,7 @@ export class MainComponent implements OnInit {
       const data  = await res.json();
       let queryDoc = document.querySelector(".current-mmr-number");
    
+      console.log(this.url);
     
       for (let i = 0; i < data.length; i++) {
         if (data[i].gameMode == `1` && data[i].gameMode == `${this.mmrForm.mode}` && data[i].race == `${this.mmrForm.race}`) {
@@ -115,6 +116,22 @@ export class MainComponent implements OnInit {
 
 
   if (this.mmrForm.mode =="301") {
+    for (let i = 0; i < data.matches.length; i++) {
+      if (
+        data.matches[i].teams[0].players[0].battleTag == `${this.mmrForm.tag.trim()}` 
+      ) {
+        array.push(data.matches[i].teams[0].players[0].currentMmr);
+      }
+      if (
+        data.matches[i].teams[1].players[0].battleTag == `${this.mmrForm.tag.trim()}`  
+      ) {
+        array.push(data.matches[i].teams[1].players[0].currentMmr);
+      }
+    }
+
+  }
+
+  else if (this.mmrForm.mode =="203") {
     for (let i = 0; i < data.matches.length; i++) {
       if (
         data.matches[i].teams[0].players[0].battleTag == `${this.mmrForm.tag.trim()}` 
