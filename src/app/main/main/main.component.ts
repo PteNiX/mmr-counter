@@ -80,7 +80,7 @@ export class MainComponent implements OnInit {
       const data  = await res.json();
       let queryDoc = document.querySelector(".current-mmr-number");
    
-   /*    console.log(this.url); */
+      /* console.log(this.url); */
     
       for (let i = 0; i < data.length; i++) {
         if (data[i].gameMode == `1` && data[i].gameMode == `${this.mmrForm.mode}` && data[i].race == `${this.mmrForm.race}`) {
