@@ -37,11 +37,16 @@ export class MainComponent implements OnInit {
     const dataTag  = await resTag.json();
 
     this.tagReturn = dataTag;
+
+    this.tagReturn1a = this.tagReturn.filter((e: { battleTag: string | string[]; })=>e.battleTag.includes('#') && !e.battleTag.includes(')') && !e.battleTag.includes('(') && !e.battleTag.includes('W3CHAMPIONS') && !e.battleTag.includes('W3Champions') && !e.battleTag.includes('W3CHAMPIOI'));
+
+
        }) ();
 
 }
 
   tagReturn:any;
+  tagReturn1a:any;
 
    ngOnInit ():void{
  
