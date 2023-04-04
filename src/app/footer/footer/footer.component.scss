@@ -26,4 +26,57 @@
 
 
     }
+
+    .right-panel{
+        display: flex;
+        
+    .link{
+        
+        text-decoration: none;
+        color: white;
+        border-radius: 4px;
+        background-color: #E40046;
+        padding: 0px 20px;
+        margin: 10px 10px 10px 10px;
+        font-size: 15px;
+        height: 30px;
+        line-height: 30px;
+        font-weight: 600;
+        &:hover {
+            background-color: #b42137;
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+
+        @media (max-width: 400px) {
+
+     
+            background-color: #E40046;
+            padding: 0px 10px;
+            margin: 5px 10px 5px 5px;
+            font-size: 13px;
+            height: 30px;
+            line-height: 30px;
+            font-weight: 500;
+        }
+
+    }
+
+    .new{
+        position: relative;
+       margin: auto;
+        color:rgb(255, 215, 0); 
+        font-weight: 900;
+       
+   
+    }
+
+    @media (max-width: 400px) {
+        
+        font-weight: 700;
+       
+    }
+}
+
+
 }
