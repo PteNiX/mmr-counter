@@ -226,7 +226,7 @@ export class MainComponent implements OnInit {
 
   else{ 
   
-  for(let i=2;i<15; i++) {
+  for(let i=2;i<16; i++) {
 
     this.mmrForm.season=i;
     let preUrlMax = `https://website-backend.w3champions.com/api/matches/search?playerId=${this.mmrForm.tag.trim().replace('#', '%23')}&gateway=0&offset=0&pageSize=100&season=${this.mmrForm.season}&gamemode=${this.mmrForm.mode}`
@@ -302,7 +302,7 @@ export class MainComponent implements OnInit {
 
      }
 
-   /*  console.log(this.fullArray); */
+    console.log(this.fullArray);
 
   const sumOfNumbers = Math.round((this.fullArray.reduce((acc, number) => acc + number, 0))/this.fullArray.length);
   const aveOfSumb = Math.round((Math.max.apply(null, this.fullArray)+Math.min.apply(null, this.fullArray))/2);
