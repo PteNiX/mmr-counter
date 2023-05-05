@@ -17,9 +17,9 @@ export class MainComponent implements OnInit {
     name: 'PteN',
     number: '21803',
     season:'15',
-    race:'2',
+    race:'1',
     mode:'1',
-    tag:'Grubby#1278',
+    tag:'ToD#2792',
        
   }
 
