@@ -14,12 +14,11 @@ export class MainComponent implements OnInit {
   urlMax='';
   title = 'mmr';
   mmrForm: any = {
-    name: 'PteN',
-    number: '21803',
-    season:'16',
-    race:'8',
+
+    season:'17',
+    race:'4',
     mode:'1',
-    tag:'LuChaeL#3162',
+    tag:'KAHO#31819',
        
   }
 
@@ -226,7 +225,7 @@ export class MainComponent implements OnInit {
 
   else{ 
   
-  for(let i=2;i<17; i++) {
+  for(let i=2;i<18; i++) {
 
     this.mmrForm.season=i;
     let preUrlMax = `https://website-backend.w3champions.com/api/matches/search?playerId=${this.mmrForm.tag.trim().replace('#', '%23')}&gateway=0&offset=0&pageSize=100&season=${this.mmrForm.season}&gamemode=${this.mmrForm.mode}`
