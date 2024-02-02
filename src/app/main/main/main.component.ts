@@ -59,7 +59,7 @@ export class MainComponent implements OnInit {
       search2?.addEventListener('input', (event) => {
 
         if(this.mmrForm.tag.length>2){
-        this.urlTag= `https://website-backend.w3champions.com/api/players/global-search?search=${this.mmrForm.tag}&pageSize=20`;}
+        this.urlTag= `https://website-backend.w3champions.com/api/players/global-search?search=${this.mmrForm.tag.trim().replace('#', '%23')}&pageSize=20`;}
         observer.next(event);
       });
   
