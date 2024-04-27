@@ -111,7 +111,7 @@ export class MainComponent implements OnInit {
 
     if(this.mmrForm.season!='all'){
 
-  let preUrlMax = `https://website-backend.w3champions.com/api/matches/search?playerId=${this.mmrForm.tag.trim().replace('#', '%23')}&gateway=0&offset=0&pageSize=100&season=${this.mmrForm.season}&gamemode=${this.mmrForm.mode}`
+  let preUrlMax = `https://website-backend.w3champions.com/api/matches/search?playerId=${this.mmrForm.tag.trim().replace('#', '%23')}&gateway=20&offset=0&pageSize=100&season=${this.mmrForm.season}&gamemode=${this.mmrForm.mode}`
 
     const preres  = await fetch(preUrlMax);
     const predata  = await preres.json();
@@ -120,7 +120,7 @@ export class MainComponent implements OnInit {
   
     for (let j=0; j<countGames+1;j++) {
     this.urlMax =
-  `https://website-backend.w3champions.com/api/matches/search?playerId=${this.mmrForm.tag.trim().replace('#', '%23')}&gateway=0&offset=${j+"00"}&pageSize=100&season=${this.mmrForm.season}&gamemode=${this.mmrForm.mode}`;
+  `https://website-backend.w3champions.com/api/matches/search?playerId=${this.mmrForm.tag.trim().replace('#', '%23')}&gateway=20&offset=${j+"00"}&pageSize=100&season=${this.mmrForm.season}&gamemode=${this.mmrForm.mode}`;
 
   const res  = await fetch(this.urlMax);
       const data  = await res.json();
@@ -184,7 +184,7 @@ export class MainComponent implements OnInit {
 
      }
 
-    /* console.log(this.fullArray); */
+     console.log(this.fullArray); 
 
   const sumOfNumbers = Math.round((this.fullArray.reduce((acc, number) => acc + number, 0))/this.fullArray.length);
   const aveOfSumb = Math.round((Math.max.apply(null, this.fullArray)+Math.min.apply(null, this.fullArray))/2);
@@ -228,7 +228,7 @@ export class MainComponent implements OnInit {
   for(let i=2;i<19; i++) {
 
     this.mmrForm.season=i;
-    let preUrlMax = `https://website-backend.w3champions.com/api/matches/search?playerId=${this.mmrForm.tag.trim().replace('#', '%23')}&gateway=0&offset=0&pageSize=100&season=${this.mmrForm.season}&gamemode=${this.mmrForm.mode}`
+    let preUrlMax = `https://website-backend.w3champions.com/api/matches/search?playerId=${this.mmrForm.tag.trim().replace('#', '%23')}&gateway=20&offset=0&pageSize=100&season=${this.mmrForm.season}&gamemode=${this.mmrForm.mode}`
 
     const preres  = await fetch(preUrlMax);
     const predata  = await preres.json();
@@ -237,7 +237,7 @@ export class MainComponent implements OnInit {
   
     for (let j=0; j<countGames+1;j++) {
     this.urlMax =
-  `https://website-backend.w3champions.com/api/matches/search?playerId=${this.mmrForm.tag.trim().replace('#', '%23')}&gateway=0&offset=${j+"00"}&pageSize=100&season=${this.mmrForm.season}&gamemode=${this.mmrForm.mode}`;
+  `https://website-backend.w3champions.com/api/matches/search?playerId=${this.mmrForm.tag.trim().replace('#', '%23')}&gateway=20&offset=${j+"00"}&pageSize=100&season=${this.mmrForm.season}&gamemode=${this.mmrForm.mode}`;
 
   const res  = await fetch(this.urlMax);
       const data  = await res.json();
