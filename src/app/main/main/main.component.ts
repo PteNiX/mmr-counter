@@ -15,10 +15,10 @@ export class MainComponent implements OnInit {
   title = 'mmr';
   mmrForm: any = {
 
-    season:'18',
+    season:'19',
     race:'1',
     mode:'1',
-    tag:'Leon#23655',
+    tag:'SaulApeMan#2163',
        
   }
 
@@ -225,7 +225,7 @@ export class MainComponent implements OnInit {
 
   else{ 
   
-  for(let i=2;i<19; i++) {
+  for(let i=2;i<20; i++) {
 
     this.mmrForm.season=i;
     let preUrlMax = `https://website-backend.w3champions.com/api/matches/search?playerId=${this.mmrForm.tag.trim().replace('#', '%23')}&gateway=20&offset=0&pageSize=100&season=${this.mmrForm.season}&gamemode=${this.mmrForm.mode}`
