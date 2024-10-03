@@ -57,45 +57,15 @@
     </select>
 
     <button class="button" (click)="showCurrentMmr()" (click)="showMaxMmr()">show</button>
-    <button class="button" (click)="showGraph()">graph</button>
   </form>
-  <mat-slide-toggle [aria-label]="">
-  </mat-slide-toggle>
+
+
   <app-graph [fullArray]="fullArray"></app-graph>
-  <div class="results">
-    <table>
-      <tbody>
-        <tr>
-          <td class="title-result">
-            Current MMR
-          </td>
-          <div class="current-mmr-number mmr-result">0</div>
-        </tr>
-        <tr>
-          <td class="title-result">
-            Maximum MMR
-          </td>
-          <div class="max-mmr mmr-result">0</div>
-        </tr>
-        <tr>
-          <td class="title-result">
-            Minimum MMR
-          </td>
-          <div class="min-mmr mmr-result">0</div>
-        </tr>
-        <tr>
-          <td class="title-result">
-            Average MMR
-          </td>
-          <div class="av-mmr mmr-result">0</div>
-        </tr>
-        <tr>
-          <td class="title-result">
-            Median MMR
-          </td>
-          <div class="med-mmr mmr-result">0</div>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <app-numbers [fullArray]="fullArray"></app-numbers>
+
+
+
+  <!-- 
+  <mat-slide-toggle (change)="toggleGraph()">
+  </mat-slide-toggle> -->
 </div>

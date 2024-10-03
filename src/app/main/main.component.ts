@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GraphComponent } from './gpaph/graph.component';
+import { NumbersComponent } from './numbers/numbers.component';
+
 
 @Component({
   selector: 'app-main',
@@ -8,11 +10,11 @@ import { GraphComponent } from './gpaph/graph.component';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-
-  errorMessage="";
-  errorMessage1="";
-  url="";
-  urlMax='';
+  isGraphVisible = true;
+  errorMessage = "";
+  errorMessage1 = "";
+  url = "";
+  urlMax = '';
   title = 'mmr';
   mmrForm: any = {
 
@@ -25,28 +27,44 @@ export class MainComponent implements OnInit {
 
   urlTag= `https://website-backend.w3champions.com/api/players/global-search?search=${this.mmrForm.tag}&pageSize=20`;
 
-  fullArray: any[] = [];
+  fullArray: number [] = [];
 
   @ViewChild(GraphComponent) private graphComponent!: GraphComponent;
+  @ViewChild(NumbersComponent) private numbersComponent!: NumbersComponent;
 
   public triggerChartCreation(): void {
     this.graphComponent.createChart();
   }
 
- urlFunction() {
+  public triggerNumbersCount () {
+    this.numbersComponent.updateMMR();
+  }
 
 
-  (async () => {
-    const resTag  = await fetch(this.urlTag);
-    const dataTag  = await resTag.json();
+  toggleGraph() {
+    this.isGraphVisible = !this.isGraphVisible; 
+  }
+
+
+private isValidBattleTag(tag: string): boolean {
+  return tag.includes('#') && 
+         !tag.includes(')') && 
+         !tag.includes('(') && 
+         !tag.toLowerCase().includes('w3champions');
+}
+
+
+async urlFunction(): Promise<void> {
+  try {
+    const resTag = await fetch(this.urlTag);
+    const dataTag = await resTag.json();
 
     this.tagReturn = dataTag;
 
-    this.tagReturn1a = this.tagReturn.filter((e: { battleTag: string | string[]; })=>e.battleTag.includes('#') && !e.battleTag.includes(')') && !e.battleTag.includes('(') && !e.battleTag.includes('W3CHAMPIONS') && !e.battleTag.includes('W3Champions') && !e.battleTag.includes('W3CHAMPIOI'));
-
-
-       }) ();
-
+    this.tagReturn1a = this.tagReturn.filter((e: { battleTag: string }) => this.isValidBattleTag(e.battleTag));
+  } catch (error) {
+    console.error('Error fetching battle tags:', error);
+  }
 }
 
   tagReturn:any;
@@ -82,9 +100,7 @@ export class MainComponent implements OnInit {
 
   if(this.mmrForm.season=='all'){
     this.url = `https://website-backend.w3champions.com/api/players/${this.mmrForm.tag.trim().replace('#', '%23')}/game-mode-stats?gateWay=20&season=14`;
-  }
-
-        
+  }     
       const res  = await fetch(this.url);
       const data  = await res.json();
       let queryDoc = document.querySelector(".current-mmr-number");
@@ -104,7 +120,6 @@ export class MainComponent implements OnInit {
           }
         }      
         
-
 
 }
 
@@ -192,39 +207,8 @@ export class MainComponent implements OnInit {
 
      console.log(this.fullArray); 
 
-  const sumOfNumbers = Math.round((this.fullArray.reduce((acc, number) => acc + number, 0))/this.fullArray.length);
-  const aveOfSumb = Math.round((Math.max.apply(null, this.fullArray)+Math.min.apply(null, this.fullArray))/2);
-   
-  let queryDoc:any = document.querySelector(".current-mmr-number");
-
-
-  let queryDocMax:any = document.querySelector(".max-mmr");
-  let queryDocMin:any = document.querySelector(".min-mmr");
-  let queryDocMed:any = document.querySelector(".med-mmr");
-  let queryDocAv:any = document.querySelector(".av-mmr");
-      
-    queryDocMax.innerHTML = Math.max.apply(null, this.fullArray);
-    queryDocMin.innerHTML = Math.min.apply(null, this.fullArray);
-    queryDocAv.innerHTML = sumOfNumbers;
-    queryDocMed.innerHTML = aveOfSumb;
-
-   
-    if (queryDocMax.innerHTML == -Infinity) {
-      queryDocMax.innerHTML = "0";
-      queryDocMed.innerHTML = "0";
-      queryDocAv.innerHTML = "0";
-      queryDoc.innerHTML="0";
-      
-    }
-
-    if (queryDocMin.innerHTML == Infinity) {
-      queryDocMin.innerHTML = "0";
-      queryDocMed.innerHTML = "0";
-      queryDocAv.innerHTML = "0";
-      queryDoc.innerHTML="0";
-      
-    }
-
+  
+    this.triggerNumbersCount();
     this.triggerChartCreation();
 
   }
@@ -310,39 +294,8 @@ export class MainComponent implements OnInit {
 
     console.log(this.fullArray);
 
-  const sumOfNumbers = Math.round((this.fullArray.reduce((acc, number) => acc + number, 0))/this.fullArray.length);
-  const aveOfSumb = Math.round((Math.max.apply(null, this.fullArray)+Math.min.apply(null, this.fullArray))/2);
-   
-  let queryDoc:any = document.querySelector(".current-mmr-number");
 
-
-  let queryDocMax:any = document.querySelector(".max-mmr");
-  let queryDocMin:any = document.querySelector(".min-mmr");
-  let queryDocMed:any = document.querySelector(".med-mmr");
-  let queryDocAv:any = document.querySelector(".av-mmr");
-      
-    queryDocMax.innerHTML = Math.max.apply(null, this.fullArray);
-    queryDocMin.innerHTML = Math.min.apply(null, this.fullArray);
-    queryDocAv.innerHTML = sumOfNumbers;
-    queryDocMed.innerHTML = aveOfSumb;
-
-   
-    if (queryDocMax.innerHTML == -Infinity) {
-      queryDocMax.innerHTML = "0";
-      queryDocMed.innerHTML = "0";
-      queryDocAv.innerHTML = "0";
-      queryDoc.innerHTML="0";
-      
-    }
-
-    if (queryDocMin.innerHTML == Infinity) {
-      queryDocMin.innerHTML = "0";
-      queryDocMed.innerHTML = "0";
-      queryDocAv.innerHTML = "0";
-      queryDoc.innerHTML="0";
-      
-    }
-
+    this.triggerNumbersCount();
     this.triggerChartCreation();
 
 
@@ -359,6 +312,7 @@ export class MainComponent implements OnInit {
 
   showGraph(){
     console.log('gpraph work');
+    this.triggerChartCreation();
   
   }
 

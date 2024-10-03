@@ -11,8 +11,19 @@
     background-color: white;
     background-size:cover;
     border-radius: 0.25em;
-    background-image: linear-gradient( rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.5) ),url(../../../assets/images/background/orchu.jpg);
+    background-image: linear-gradient( rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.5) ),url(../../assets/images/background/orchu.jpg);
     overflow-y:auto ;
+
+
+    .graph {
+    
+        display: block;
+      }
+      
+      .no-graph {
+   
+        display: none;
+      }
     
    
     .title{
@@ -191,37 +202,7 @@
 
     }
 
-    .results {
-        position: relative;
-        top:-2rem;
-        width: 30%;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        
 
-        .title-result {
-            
-            margin: auto;
-            color:white;
-           
-        }
-        .mmr-result{
-            
-            margin: auto;
-            background-color: rgb(255, 215, 0);
-            width: 3rem;
-            color: rgb(0, 71, 151);
-            border-radius: 0.25em;
-            padding: 0.25em 0.5em;
-            font-size: 1rem;
-
-        }
-    
-
-
-}
 
 
 }

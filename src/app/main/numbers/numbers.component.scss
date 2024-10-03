@@ -1,0 +1,32 @@
+
+.results {
+    position: relative;
+    top:-2rem;
+    width: 30%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+
+    .title-result {
+        
+        margin: auto;
+        color:white;
+       
+    }
+    .mmr-result{
+        
+        margin: auto;
+        background-color: rgb(255, 215, 0);
+        width: 3rem;
+        color: rgb(0, 71, 151);
+        border-radius: 0.25em;
+        padding: 0.25em 0.5em;
+        font-size: 1rem;
+
+    }
+
+
+
+}
