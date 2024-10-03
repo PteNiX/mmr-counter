@@ -57,8 +57,11 @@
     </select>
 
     <button class="button" (click)="showCurrentMmr()" (click)="showMaxMmr()">show</button>
+    <button class="button" (click)="showGraph()">graph</button>
   </form>
-
+  <mat-slide-toggle [aria-label]="">
+  </mat-slide-toggle>
+  <app-graph [fullArray]="fullArray"></app-graph>
   <div class="results">
     <table>
       <tbody>

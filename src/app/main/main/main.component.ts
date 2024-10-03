@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
+import { GraphComponent } from './gpaph/graph.component';
 
 @Component({
   selector: 'app-main',
@@ -26,7 +27,11 @@ export class MainComponent implements OnInit {
 
   fullArray: any[] = [];
 
+  @ViewChild(GraphComponent) private graphComponent!: GraphComponent;
 
+  public triggerChartCreation(): void {
+    this.graphComponent.createChart();
+  }
 
  urlFunction() {
 
@@ -110,6 +115,7 @@ export class MainComponent implements OnInit {
   async showMaxMmr () {
 
     if(this.mmrForm.season!='all'){
+      this.fullArray=[];
 
   let preUrlMax = `https://website-backend.w3champions.com/api/matches/search?playerId=${this.mmrForm.tag.trim().replace('#', '%23')}&gateway=20&offset=0&pageSize=100&season=${this.mmrForm.season}&gamemode=${this.mmrForm.mode}`
 
@@ -219,11 +225,12 @@ export class MainComponent implements OnInit {
       
     }
 
-  this.fullArray=[];
+    this.triggerChartCreation();
 
   }
 
   else{ 
+    this.fullArray=[];
   
   for(let i=2;i<20; i++) {
 
@@ -336,15 +343,23 @@ export class MainComponent implements OnInit {
       
     }
 
+    this.triggerChartCreation();
+
 
   }
   
-  this.fullArray=[];
+  
 
 }
 
 
+
+
   }
 
+  showGraph(){
+    console.log('gpraph work');
+  
+  }
 
 }
