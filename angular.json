@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "mmr:build:production"
+              "buildTarget": "mmr:build:production"
             },
             "development": {
-              "browserTarget": "mmr:build:development"
+              "buildTarget": "mmr:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "mmr:build"
+            "buildTarget": "mmr:build"
           }
         },
         "test": {
