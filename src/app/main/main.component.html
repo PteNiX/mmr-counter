@@ -60,12 +60,15 @@
   </form>
 
 
-  <app-graph [fullArray]="fullArray"></app-graph>
-  <app-numbers [fullArray]="fullArray"></app-numbers>
+
+  <!-- <button class="button" (click)="toggleGraph()"> graph</button> -->
+  <div class="overlay-container">
+    <app-graph [fullArray]="fullArray" [ngClass]="{'graph': !isGraphVisible, 'no-graph': isGraphVisible}"></app-graph>
+
+    <app-numbers [fullArray]="fullArray"
+      [ngClass]="{'graph': isGraphVisible, 'no-graph': !isGraphVisible}"></app-numbers>
+    <app-slide-toggle (toggleEvent)="onGraphToggle($event)"></app-slide-toggle>
+  </div>
 
 
-
-  <!-- 
-  <mat-slide-toggle (change)="toggleGraph()">
-  </mat-slide-toggle> -->
 </div>

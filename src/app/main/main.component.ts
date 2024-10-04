@@ -10,7 +10,7 @@ import { NumbersComponent } from './numbers/numbers.component';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  isGraphVisible = true;
+  isGraphVisible: boolean = true;
   errorMessage = "";
   errorMessage1 = "";
   url = "";
@@ -31,6 +31,8 @@ export class MainComponent implements OnInit {
 
   @ViewChild(GraphComponent) private graphComponent!: GraphComponent;
   @ViewChild(NumbersComponent) private numbersComponent!: NumbersComponent;
+checked: any;
+disabled: unknown;
 
   public triggerChartCreation(): void {
     this.graphComponent.createChart();
@@ -41,8 +43,9 @@ export class MainComponent implements OnInit {
   }
 
 
-  toggleGraph() {
-    this.isGraphVisible = !this.isGraphVisible; 
+  onGraphToggle(isVisible: boolean) {
+
+    this.isGraphVisible = isVisible;
   }
 
 

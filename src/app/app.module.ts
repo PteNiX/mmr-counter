@@ -8,22 +8,27 @@ import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { GraphComponent } from "./main/gpaph/graph.component";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { NumbersComponent } from "./main/numbers/numbers.component";
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { SlideToggleComponent } from './main/slide-toggle/slide-toggle.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    SlideToggleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    MatSlideToggleModule,
     GraphComponent,
-    NumbersComponent
+    NumbersComponent,
+
+    MatSlideToggleModule
+    
 ],
   providers: [
     provideAnimationsAsync()

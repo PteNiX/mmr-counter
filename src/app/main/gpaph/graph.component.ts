@@ -6,7 +6,7 @@ import * as d3 from 'd3';
   standalone: true,
   imports: [],
   templateUrl: './graph.component.html',
-  styleUrl: './graph.component.scss'
+  styleUrl: './graph.component.scss',
 })
 export class GraphComponent implements OnInit {
   @Input() fullArray: any[] = [];
