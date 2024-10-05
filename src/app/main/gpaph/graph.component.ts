@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 
 @Component({
@@ -17,9 +17,17 @@ export class GraphComponent implements OnInit {
   }
 
   createChart(): void {
+    const windowWidth = window.innerWidth;
     const margin = { top: 20, right: 30, bottom: 30, left: 40 };
-    const width = 500 - margin.left - margin.right;
-    const height = 300 - margin.top - margin.bottom;
+ 
+   
+    const width = windowWidth < 400 ? 350 - margin.left - margin.right : 
+                  windowWidth < 450 ? 400 - margin.left - margin.right : 
+                  450 - margin.left - margin.right;
+
+    const height = windowWidth < 400 ? 200 - margin.top - margin.bottom : 
+                   windowWidth < 450 ? 220 - margin.top - margin.bottom : 
+                   250 - margin.top - margin.bottom;
 
     const yMin = Math.min(...this.fullArray);
     const yMax = Math.max(...this.fullArray);
@@ -89,4 +97,12 @@ export class GraphComponent implements OnInit {
     
     
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    this.createChart();
+  }
+
+
+  
 }

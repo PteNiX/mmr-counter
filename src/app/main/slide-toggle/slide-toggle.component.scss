@@ -3,3 +3,20 @@
     justify-content: center;
 
 }
+
+.chart-title{
+    color: white;
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+}
+
+
+
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: #49c5b6 ;
+}
+
+:host ::ng-deep  .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #49c5b6 ;
+}

@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output,  ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-slide-toggle',
   templateUrl: './slide-toggle.component.html',
   styleUrls: ['./slide-toggle.component.scss'],
+  encapsulation: ViewEncapsulation.None
  
 })
 export class SlideToggleComponent {
