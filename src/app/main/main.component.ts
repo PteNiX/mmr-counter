@@ -120,7 +120,11 @@ async urlFunction(): Promise<void> {
           if(queryDoc!=null){
          queryDoc.innerHTML = data[i].mmr;
           }
-        }      
+        }      else{
+          if(queryDoc!=null){
+          queryDoc.innerHTML = '0';
+          }
+        }
         
 
 }
