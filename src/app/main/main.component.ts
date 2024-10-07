@@ -18,10 +18,10 @@ export class MainComponent implements OnInit {
   title = 'mmr';
   mmrForm: any = {
 
-    season:'19',
-    race:'1',
+    season:'20',
+    race:'4',
     mode:'1',
-    tag:'SaulApeMan#2163',
+    tag:'KAHO#31819',
        
   }
 
@@ -31,8 +31,7 @@ export class MainComponent implements OnInit {
 
   @ViewChild(GraphComponent) private graphComponent!: GraphComponent;
   @ViewChild(NumbersComponent) private numbersComponent!: NumbersComponent;
-checked: any;
-disabled: unknown;
+
 
   public triggerChartCreation(): void {
     this.graphComponent.createChart();
@@ -102,7 +101,7 @@ async urlFunction(): Promise<void> {
   this.url = `https://website-backend.w3champions.com/api/players/${this.mmrForm.tag.trim().replace('#', '%23')}/game-mode-stats?gateWay=20&season=${this.mmrForm.season}`;
 
   if(this.mmrForm.season=='all'){
-    this.url = `https://website-backend.w3champions.com/api/players/${this.mmrForm.tag.trim().replace('#', '%23')}/game-mode-stats?gateWay=20&season=14`;
+    this.url = `https://website-backend.w3champions.com/api/players/${this.mmrForm.tag.trim().replace('#', '%23')}/game-mode-stats?gateWay=20&season=${this.mmrForm.season}`;
   }     
       const res  = await fetch(this.url);
       const data  = await res.json();
@@ -214,15 +213,17 @@ async urlFunction(): Promise<void> {
     this.triggerNumbersCount();
     this.triggerChartCreation();
 
+
   }
 
   else{ 
     this.fullArray=[];
   
-  for(let i=2;i<20; i++) {
+  for(let i=2;i<21; i++) {
 
     this.mmrForm.season=i;
     let preUrlMax = `https://website-backend.w3champions.com/api/matches/search?playerId=${this.mmrForm.tag.trim().replace('#', '%23')}&gateway=20&offset=0&pageSize=100&season=${this.mmrForm.season}&gamemode=${this.mmrForm.mode}`
+
 
     const preres  = await fetch(preUrlMax);
     const predata  = await preres.json();

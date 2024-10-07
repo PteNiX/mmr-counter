@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit, SimpleChanges } from '@angular/core';
 import * as d3 from 'd3';
 
 @Component({
@@ -13,7 +13,14 @@ export class GraphComponent implements OnInit {
 
   ngOnInit(): void {
 
-  this.createChart();
+
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['fullArray']) {
+
+      this.createChart();
+    }
   }
 
   createChart(): void {
