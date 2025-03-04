@@ -19,9 +19,9 @@ export class MainComponent implements OnInit {
   mmrForm: any = {
 
     season:'21',
-    race:'4',
+    race:'1',
     mode:'1',
-    tag:'KAHO#31819',
+    tag:'StarBuck#2732',
        
   }
 
