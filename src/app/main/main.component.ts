@@ -18,10 +18,10 @@ export class MainComponent implements OnInit {
   title = 'mmr';
   mmrForm: any = {
 
-    season:'21',
-    race:'1',
+    season:'22',
+    race:'4',
     mode:'1',
-    tag:'StarBuck#2732',
+    tag:'LiiLDC#2753',
        
   }
 
