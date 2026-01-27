@@ -18,10 +18,10 @@ export class MainComponent implements OnInit {
   title = 'mmr';
   mmrForm: any = {
 
-    season:'23',
+    season:'24',
     race:'4',
     mode:'1',
-    tag:'IronSonik#2342',
+    tag:'KAHO#31819',
        
   }
 
@@ -223,7 +223,7 @@ async urlFunction(): Promise<void> {
   else{ 
     this.fullArray=[];
   
-  for(let i=2;i<24; i++) {
+  for(let i=2;i<25; i++) {
 
     this.mmrForm.season=i;
     let preUrlMax = `https://website-backend.w3champions.com/api/matches/search?playerId=${this.mmrForm.tag.trim().replace('#', '%23')}&gateway=20&offset=0&pageSize=100&season=${this.mmrForm.season}&gamemode=${this.mmrForm.mode}`
