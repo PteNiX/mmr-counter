@@ -25,6 +25,8 @@ export class MainComponent implements OnInit {
        
   }
 
+  seasons: number[] = Array.from({length: 24}, (_, i) => i + 2);
+
   urlTag= `https://website-backend.w3champions.com/api/players/global-search?search=${this.mmrForm.tag}&pageSize=20`;
 
   fullArray: number [] = [];
