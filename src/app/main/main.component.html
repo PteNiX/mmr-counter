@@ -49,6 +49,7 @@
     <app-graph [fullArray]="fullArray" [ngClass]="{'graph': !isGraphVisible, 'no-graph': isGraphVisible}"></app-graph>
 
     <app-numbers [fullArray]="fullArray"
+    [currentMmr]="currentMmrFromMain"
       [ngClass]="{'graph': isGraphVisible, 'no-graph': !isGraphVisible}"></app-numbers>
     <app-slide-toggle (toggleEvent)="onGraphToggle($event)"></app-slide-toggle>
   </div>

@@ -1,60 +1,33 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-numbers',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './numbers.component.html',
   styleUrl: './numbers.component.scss'
 })
-export class NumbersComponent implements OnInit, OnChanges {
-  @Input() fullArray: any[] = [];
+export class NumbersComponent {
+  @Input() fullArray: number[] = [];
+  @Input() currentMmr: number | string = 0;
 
-  ngOnInit(): void {
+  get maxMmr() {
+    return this.fullArray.length ? Math.max(...this.fullArray) : 0;
+  }
 
-   
-    }
+  get minMmr() {
+    return this.fullArray.length ? Math.min(...this.fullArray) : 0;
+  }
 
-    ngOnChanges(changes: SimpleChanges) {
-      if (changes['fullArray']) {
+  get averageMmr() {
+    if (!this.fullArray.length) return 0;
+    const sum = this.fullArray.reduce((acc, val) => acc + val, 0);
+    return Math.round(sum / this.fullArray.length);
+  }
 
-        this.updateMMR();
-      }
-    }
-
-   updateMMR () {
-    const sumOfNumbers = Math.round((this.fullArray.reduce((acc, number) => acc + number, 0))/this.fullArray.length);
-    const aveOfSumb = Math.round((Math.max.apply(null, this.fullArray)+Math.min.apply(null, this.fullArray))/2);
-     
-    let queryDoc:any = document.querySelector(".current-mmr-number");
-    let queryDocMax:any = document.querySelector(".max-mmr");
-    let queryDocMin:any = document.querySelector(".min-mmr");
-    let queryDocMed:any = document.querySelector(".med-mmr");
-    let queryDocAv:any = document.querySelector(".av-mmr");
-
-        
-      queryDocMax.innerHTML = Math.max.apply(null, this.fullArray);
-      queryDocMin.innerHTML = Math.min.apply(null, this.fullArray);
-      queryDocAv.innerHTML = sumOfNumbers;
-      queryDocMed.innerHTML = aveOfSumb;
-  
-
-      
-     
-      if (queryDocMax.innerHTML == -Infinity) {
-        queryDocMax.innerHTML = "0";
-        queryDocMed.innerHTML = "0";
-        queryDocAv.innerHTML = "0";
-        // queryDoc.innerHTML="0";
-        
-      }
-  
-      if (queryDocMin.innerHTML == Infinity) {
-        queryDocMin.innerHTML = "0";
-        queryDocMed.innerHTML = "0";
-        queryDocAv.innerHTML = "0";
-        // queryDoc.innerHTML="0";
-        
-      }
-    }
+  get medianMmr() {
+    if (!this.fullArray.length) return 0;
+    return Math.round((this.maxMmr + this.minMmr) / 2);
+  }
 }

@@ -24,7 +24,7 @@ export class MainComponent implements OnInit {
     tag:'LeMei#2161',
        
   }
-
+  currentMmrFromMain: number | string = 0;
   seasons: number[] = Array.from({length: 24}, (_, i) => i + 2);
 
   urlTag= `https://website-backend.w3champions.com/api/players/global-search?search=${this.mmrForm.tag}&pageSize=20`;
@@ -37,10 +37,6 @@ export class MainComponent implements OnInit {
 
   public triggerChartCreation(): void {
     this.graphComponent.createChart();
-  }
-
-  public triggerNumbersCount () {
-    this.numbersComponent.updateMMR();
   }
 
 
@@ -97,41 +93,25 @@ async urlFunction(): Promise<void> {
   }
 
 
-  async showCurrentMmr () {
+async showCurrentMmr() {
+  const encodedTag = this.mmrForm.tag.trim().replace('#', '%23');
+  this.url = `https://website-backend.w3champions.com/api/players/${encodedTag}/game-mode-stats?gateWay=20&season=${this.mmrForm.season}`;
 
-   
-  this.url = `https://website-backend.w3champions.com/api/players/${this.mmrForm.tag.trim().replace('#', '%23')}/game-mode-stats?gateWay=20&season=${this.mmrForm.season}`;
-
-  if(this.mmrForm.season=='all'){
-    this.url = `https://website-backend.w3champions.com/api/players/${this.mmrForm.tag.trim().replace('#', '%23')}/game-mode-stats?gateWay=20&season=${this.mmrForm.season}`;
-  }     
-      const res  = await fetch(this.url);
-      const data  = await res.json();
-      let queryDoc = document.querySelector(".current-mmr-number");
-   
-      /* console.log(this.url); */
+  try {
+    const res = await fetch(this.url);
+    const data = await res.json();
     
-      for (let i = 0; i < data.length; i++) {
-        if (data[i].gameMode == `1` && data[i].gameMode == `${this.mmrForm.mode}` && data[i].race == `${this.mmrForm.race}`) {
-          if(queryDoc!=null){
-         queryDoc.innerHTML = data[i].mmr;
-          }
-        } 
+    const result = data.find((item: any) => 
+      item.gameMode == this.mmrForm.mode && 
+      (item.gameMode == '1' ? item.race == this.mmrForm.race : true)
+    );
 
-       else if (data[i].gameMode != `1` && data[i].gameMode == `${this.mmrForm.mode}` ) {
-          if(queryDoc!=null){
-         queryDoc.innerHTML = data[i].mmr;
-          }
-        }      else{
-          if(queryDoc!=null){
-          queryDoc.innerHTML = '0';
-          }
-        }
-        
-
-}
-
+    this.currentMmrFromMain = result ? result.mmr : '0';
+  } catch (error) {
+    console.error('Error fetching current MMR:', error);
+    this.currentMmrFromMain = '0';
   }
+}
 
   
 
@@ -216,7 +196,6 @@ async urlFunction(): Promise<void> {
      console.log(this.fullArray); 
 
   
-    this.triggerNumbersCount();
     this.triggerChartCreation();
 
 
@@ -304,20 +283,12 @@ async urlFunction(): Promise<void> {
 
     console.log(this.fullArray);
 
-
-    this.triggerNumbersCount();
     this.triggerChartCreation();
-
 
   }
   
-  
 
 }
-
-
-
-
   }
 
   showGraph(){
